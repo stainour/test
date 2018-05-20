@@ -16,4 +16,4 @@ and
 
     dotnet API.dll
 
-UI available at http://localhost:5000/swagger/
+Swagger UI is available at http://localhost:5000/swagger/
