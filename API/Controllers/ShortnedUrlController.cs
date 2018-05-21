@@ -72,7 +72,7 @@ namespace API.Controllers
         /// <response code="400">Неверно задан параметр запроса</response>
         /// <response code="409">Ссылка уже была создана</response>
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        [ProducesResponseType((int)HttpStatusCode.Created)]
+        [ProducesResponseType(typeof(string), (int)HttpStatusCode.Created)]
         [ProducesResponseType((int)HttpStatusCode.Conflict)]
         [ValidateModel]
         [HttpPost]
@@ -83,7 +83,8 @@ namespace API.Controllers
             if (result.createdWithoutConflict)
             {
                 var uriMapping = result.mapping;
-                return CreatedAtRoute("GetByKey", new { key = uriMapping.ShortenedKey }, uriMapping);
+                var shortnedUrl = UrlHelper.AddShemeAndDomain(uriMapping.ShortenedKey);
+                return CreatedAtRoute("GetByKey", new { url = shortnedUrl }, shortnedUrl);
             }
             return StatusCode((int)HttpStatusCode.Conflict);
         }
