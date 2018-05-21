@@ -41,7 +41,7 @@ namespace Infrastructure.Implementation.MongoDB
             return result.MatchedCount == 1 ? AddResult.AlreadyExists : AddResult.OK;
         }
 
-        public Task<IEnumerable<UriMapping>> AllAsync() => _mongoCollection.FindSync(FilterDefinition<UriMapping>.Empty).ToListAsync().ContinueWith(task => task.Result as IEnumerable<UriMapping>);
+        public Task<IEnumerable<UriMapping>> AllAsync() => _mongoCollection.FindAsync(FilterDefinition<UriMapping>.Empty).ContinueWith(task => task.Result.ToEnumerable());
 
         public Task<UriMapping> FindByIdAsync(Uri id)
         {
