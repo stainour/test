@@ -25,7 +25,10 @@ namespace Infrastructure.Implementation.MongoDB
         public UriMappingRepository(IMongoDatabase database)
         {
             _database = database ?? throw new ArgumentNullException(nameof(database));
-            _mongoCollection = _database.GetCollection<UriMapping>("UriMapping");
+            _mongoCollection = _database.GetCollection<UriMapping>("UriMapping", new MongoCollectionSettings
+            {
+                WriteConcern = new WriteConcern(journal: true, w: 1)
+            });
             _mongoCollection.Indexes.CreateOne(Builders<UriMapping>.IndexKeys.Ascending(mapping => mapping.ShortenedKey), new CreateIndexOptions { Background = true, Unique = true });
         }
 

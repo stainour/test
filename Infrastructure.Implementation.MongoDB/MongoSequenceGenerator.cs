@@ -15,7 +15,10 @@ namespace Infrastructure.Implementation.MongoDB
         {
             _database = database ?? throw new System.ArgumentNullException(nameof(database));
             _client = database.Client;
-            _mongoCollection = _database.GetCollection<Sequence>(nameof(Sequence));
+            _mongoCollection = _database.GetCollection<Sequence>(nameof(Sequence), new MongoCollectionSettings
+            {
+                WriteConcern = new WriteConcern(journal: true, w: 1)
+            });
 
             _mongoCollection.UpdateOne(sequence => sequence.Id == SequenceDocId, new UpdateDefinitionBuilder<Sequence>().SetOnInsert(sequence => sequence.Value, 0), new UpdateOptions { IsUpsert = true });
         }
