@@ -2,18 +2,9 @@
 Test app
 
 # Requirements
+ - [ ] Docker 18.06.0-ce 
 
- - [ ] NET Core SDK 2.1.200 
- - [ ] MongoDB 3.6.4 running default settings
-
-# Build
-
-    dotnet publish -c Release -o ../app
-    
 # Run
-    cd app 
-and        
-
-    dotnet API.dll
+docker-compose up
 
 Swagger UI is available at http://localhost:5000/swagger/

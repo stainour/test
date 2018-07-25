@@ -5,11 +5,13 @@ VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreDomain", "CoreDomain\CoreDomain.csproj", "{72771C75-C320-4A7A-BEBE-F2C32682A95C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{A5A05499-C8B5-41D2-A6E9-D15AD05CB997}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{A5A05499-C8B5-41D2-A6E9-D15AD05CB997}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Implementation.MongoDB", "Infrastructure.Implementation.MongoDB\Infrastructure.Implementation.MongoDB.csproj", "{99D45A9D-47C8-4F07-A156-06F16EAEEE1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Implementation.MongoDB", "Infrastructure.Implementation.MongoDB\Infrastructure.Implementation.MongoDB.csproj", "{99D45A9D-47C8-4F07-A156-06F16EAEEE1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{D3A2F80C-299E-463D-942C-DBA1D290F15E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{D3A2F80C-299E-463D-942C-DBA1D290F15E}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{DF0AB830-6BE6-44F9-8491-816E5701C5A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D3A2F80C-299E-463D-942C-DBA1D290F15E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3A2F80C-299E-463D-942C-DBA1D290F15E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3A2F80C-299E-463D-942C-DBA1D290F15E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF0AB830-6BE6-44F9-8491-816E5701C5A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF0AB830-6BE6-44F9-8491-816E5701C5A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF0AB830-6BE6-44F9-8491-816E5701C5A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF0AB830-6BE6-44F9-8491-816E5701C5A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

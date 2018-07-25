@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  api:
+    image: api:latest
+    build:
+      context: .
+      dockerfile: API/Dockerfile
+
+    depends_on:
+      - mongodb
+
+    ports:
+      - 5000:5000
+
+  mongodb:
+    image: mongo:3.6.6
+    hostname: db
