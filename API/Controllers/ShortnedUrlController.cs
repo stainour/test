@@ -1,7 +1,6 @@
 ﻿using API.Infrastructure;
 using API.Services;
 using API.ViewModel;
-using CoreDomain;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -14,13 +13,11 @@ namespace API.Controllers
     [Route("api/v1/[controller]")]
     public class ShortnedUrlController : Controller
     {
-        private readonly IUriMappingRepository _repository;
         private readonly ApiService _service;
 
-        public ShortnedUrlController(IUriMappingRepository repository, ApiService service)
+        public ShortnedUrlController(ApiService service)
         {
             _service = service ?? throw new ArgumentNullException(nameof(service));
-            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
         /// <summary>
@@ -29,7 +26,7 @@ namespace API.Controllers
         [HttpGet]
         public async Task<IEnumerable<UrlKeyStat>> Get()
         {
-            var uriMappings = await _repository.AllAsync();
+            var uriMappings = await _service.GetAllMappingsAsync();
 
             return uriMappings.Select(mapping => new UrlKeyStat
             {

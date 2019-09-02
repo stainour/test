@@ -1,6 +1,7 @@
 ﻿using CoreDomain;
 using Infrastructure;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace API.Services
@@ -33,6 +34,11 @@ namespace API.Services
             return result == AddResult.OK ? (true, mapping) : (false, null);
         }
 
+        public  Task<IEnumerable<UriMapping>> GetAllMappingsAsync()
+        {
+            return _repository.AllAsync();
+        }
+
         public async Task<UriMapping> ResolveByKey(string key)
         {
             if (key == null) throw new ArgumentNullException(nameof(key));
@@ -42,6 +48,7 @@ namespace API.Services
             {
                 return null;
             }
+
             _repository.IncrementHitCountAsync(new Uri(uriMapping.Uri));
             return uriMapping;
         }
